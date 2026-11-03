@@ -1,0 +1,129 @@
+Oh, one, two, there's enough of you to get going, okay.
+Robert Ross 0 minutes 24 seconds
+It's 2 minutes past, so let's get going.
+Robert Ross 0 minutes 28 seconds
+Welcome along everybody to week 5 of the Natural Language Technology course. Tonight, we're going to be staying sort of in the area of text and representation, something we were looking at in particular 2 weeks ago. You know,
+Robert Ross 0 minutes 48 seconds
+I'll be clear, tonight's one, it's a little bit unusual in that in terms of some of the technologies, I feel conflicted because...
+Robert Ross 0 minutes 58 seconds
+You know what, there's an argument to be said that the nature of how we approach many of these techniques has changed in the last few years, but nevertheless, many of the techniques I'm going to introduce you tonight are either still important because they form the basis of bigger technologies and are needed.
+Robert Ross 1 minute 17 seconds
+Or the same technology or the same goal can now be achieved using something like LLMs, but we still need to understand the goal. Okay, so that's what a lot of the content this week is going to be about. Now, there's a fair amount of it, by the way.
+Robert Ross 1 minute 35 seconds
+Simply because what we're dealing with tonight could have, and I know I've said this before, but it's true, what we're dealing with tonight could easily have been an entire course once upon a time. And in fact, there are many entire courses that I've studied over the years that cover basically what we're going to cover tonight.
+Robert Ross 1 minute 55 seconds
+Of course, in a heck of a lot more detail, don't get me wrong, but fundamentally, each one of the major little beats, little chunks that I look at this evening could have been a lecture in themselves.
+Robert Ross 2 minutes 8 seconds
+Okay, but to put our heads in the right space, let me just refresh you, not in terms of what we did last week, because we took a little detour back into language output last week, but in the week before, if you remember, we spent some time looking at the representations of text, because that is really important. I mean, the issue of representations,
+Robert Ross 2 minutes 29 seconds
+is not one of these things where I feel a little bit conflicted. You need to know about all the different types of representations because many of them are, they're all still relevant in different ways.
+Robert Ross 2 hours 14 minutes 59 seconds
+the idea of dialogue acts and dialogue act tagging and utterances and so forth. And I've said a little bit about how we can build them into applications using things like spacing. We'll have a look at the notebook later on that. But I did say I wanted also to look at dialogue processing itself in this context.
+Robert Ross 2 hours 15 minutes 19 seconds
+So let's say a little bit about dialogue processing as a whole, and not just in terms of processing the individual utterances as we were looking at there.
+Robert Ross 2 hours 15 minutes 33 seconds
+So to do this, what we're going to do is look back at that original diagram we saw some five weeks ago of the dialogue system, the spoken dialogue system, and I'm going to quickly reintroduce you to it, but we're then going to dig in onto this specific dialogue manager component.
+Robert Ross 2 hours 15 minutes 54 seconds
+That dialogue system, that architecture I was talking about, this was it from a couple of weeks back, if you remember. And the key point in this was that, if we can get my pen, yeah, user would say something to system, it's processed through the inputs. We then do some sort of analysis on it in the modern applications that could just be
+Robert Ross 2 hours 16 minutes 15 seconds
+A distributed analysis, giving us a nice vector, and then that's passed into some sort of dialogue manager, which does stuff, and then eventually decides to say something back to the user via a particular chain. That's your classic.
+Robert Ross 2 hours 16 minutes 34 seconds
+spoken dialogue system application and what we're really interested in tonight and relating to LLMs and relating to all this other tech is the dialogue manager itself.
+Robert Ross 2 hours 16 minutes 48 seconds
+So, in terms of dialogue management, and this was a point I did make a couple of weeks ago, if you remember, I described dialogue management as being based around 2 core tasks, two tasks. They can be done in very different ways, but it always boils down to...
+Robert Ross 2 hours 17 minutes 8 seconds
+Two tasks, one.
+Robert Ross 2 hours 17 minutes 12 seconds
+is updating.
+Robert Ross 2 hours 17 minutes 14 seconds
+The dialogue state, and so, in other words, taking a representation of what the user said and deciding what bits of it are really important to update in our dialogue state, usually not just sort of saying, "Oh, here's the history," but instead saying...
+Robert Ross 2 hours 17 minutes 33 seconds
+here's what the user is really important to. It's almost like just identifying the key bits of the conversation, so forth, particularly for trying to take a task forward. Then the second part of the dialogue management task.
+Robert Ross 2 hours 17 minutes 49 seconds
+is deciding what to do.
+Robert Ross 2 hours 17 minutes 53 seconds
+So specifically, what actions should we perform? And these are the two key processes that are associated with dialogue model, with dialogue management. And usually they will of course be referencing some sort of representation where we can just store all of these decisions or store what the user has said.
+Robert Ross 2 hours 18 minutes 16 seconds
+And so that is the core of dialogue management and an LLM, or I should say a conversational AI rather than an LLM, will do this stuff directly, of course, as well. An LLM will store information about what the user said, or sorry, conversational AI will store information about what the user said, usually in a conversational history.
+Robert Ross 2 hours 18 minutes 40 seconds
+In A naive implementation, it's just going to be a bare bones textual history. Bigger, more modern approaches do things in different ways, but you can think of a bare bones dialogue history. And then the planner is actually just the LLM itself. And if you're using agentic AI, it's deciding what.
+Robert Ross 2 hours 18 minutes 59 seconds
+action should be performed next. So definitely this sort of structure we're showing is directly relevant to conversational AI and how we use Agenticate and so forth. But before we get there, I just want to take a little tour around to illustrate the different types of decision processes.
+Robert Ross 2 hours 19 minutes 18 seconds
+We might actually take.
+Robert Ross 2 hours 19 minutes 22 seconds
+Okay, so to illustrate that.
+Robert Ross 2 hours 19 minutes 26 seconds
+I want to highlight four of the key main dialogue management paradigms. Let's call these paradigms that tend to be used. Each of them has particular advantages. Each of them I do see implemented into conversational AI solutions based on LLMs.
+Robert Ross 2 hours 19 minutes 45 seconds
+So they all play a role and they all provide slightly different levels of control of the complete system. Over the next few slides, we're going to dig into them in more depth. So I'm not just explaining them here, I'm going to go through them in the next few slides. Okay.
+Robert Ross 2 hours 20 minutes 3 seconds
+So, the first of these is sort of just like a...
+Robert Ross 2 hours 20 minutes 8 seconds
+A chit chats or sort of a surface form based engine that takes what user says and comes up with rules to respond to it. This is a very basic surface level form of intelligence that.
+Robert Ross 2 hours 20 minutes 27 seconds
+isn't smart, isn't powerful, but still can be used for a number of basic tasks. And in fact, we still see a version of this, as I said, being implemented with things like Lex in Amazon Echo devices. You can code up basic rules.
+Robert Ross 2 hours 20 minutes 46 seconds
+They call them skills, where you can say one thing and get an immediate response being generated in response. And that's exactly what these sorts of chit-chat rules are. Now, in early systems, people would even try to implement and to fake really intelligent behaviour with these. That never worked in practise.
+Robert Ross 2 hours 21 minutes 6 seconds
+Where we use these rules nowadays is really just where you have a task-oriented interaction and there's no need for intelligence. There's no need for faking intelligence for one reason or another. You just want a simple.
+Robert Ross 2 hours 21 minutes 20 seconds
+usually is something like question answer pairing or request answer response. And it works quite well. So simple, straightforward, dumb as anything but powerful.
+Robert Ross 2 hours 21 minutes 34 seconds
+Pairs can be more structured in nature. Like I said, you can try to build up more intelligent pairings, and that's by paying attention to the, you know, some of the more important conversational rules we have in language, like things like greetings and responses and so forth. But again,
+Robert Ross 2 hours 21 minutes 52 seconds
+My view on this sort of stuff nowadays is that don't bother using these sorts of rule-based systems for faking actual intelligence. Leave that to the LLM, leave that to some other rules stating how the system should interact with the user and instead just fixate on these pairings for the.
+Robert Ross 2 hours 22 minutes 12 seconds
+Really, you know.
+Robert Ross 2 hours 22 minutes 14 seconds
+bits of interaction where we want a high level of control.
+Robert Ross 2 hours 22 minutes 18 seconds
+Okay, so that's the pair-based interaction. What else can we move on to? Well, the next is state graph-based processes. And these...
+Robert Ross 2 hours 22 minutes 30 seconds
+have sort of a, these are interesting in that they've evolved from very simple approaches to complicated approaches and now increasingly back to simple approaches again. So what are they? They're very much related to the idea of just a graph structure for controlling a process.
+Robert Ross 2 hours 22 minutes 49 seconds
+So for any of you doing a Masters in Computer Science, I'm sure you can imagine the idea of a graph controlling a process.
+Robert Ross 2 hours 22 minutes 57 seconds
+and how that process is ordered is really up to you.
+Robert Ross 2 hours 23 minutes 1 second
+And I don't just mean it's application specific; what I mean is, you could have a process diagram that's based around speech acts and dialogue acts and so forth, or you could have a process diagram that's really just based on information that's required. I need somebody's name, I need their age, I need their address.
+Robert Ross 2 hours 23 minutes 20 seconds
+They're all nodes in a graph, and I can create a graph with these nodes and say to an algorithm, well, our job in the conversation is to move through the graph and to collect all those relevant bits of information. And so, yeah, early, this is something called the core model.
+Robert Ross 2 hours 23 minutes 39 seconds
+It's older than me, which is ancient, right? And it's like from the mid 70s. And what something like this was trying to do was take that very high level approach.
+Robert Ross 2 hours 23 minutes 50 seconds
+of describing interaction and try to get it down on paper and to allow dialogue managers to follow these sorts of high level rules in terms of how interaction works. And that's what I meant when I said these things started with very simple, generic approaches. In the 90s, 2000s, 2010s, and even a couple of interactive voice response systems that are still knocking around.
+Robert Ross 2 hours 24 minutes 16 seconds
+you would tend to see these way more complicated implementations. That would actually be way more complicated than this, by the way, where we're not trying to be generic, but instead trying to be very specific about, for example, a banking app and so forth. So these, you can imagine, are still used quite a lot in specific application tasks.
+Robert Ross 2 hours 24 minutes 39 seconds
+But what has happened recently is you will see lots and lots of conversational AI systems that are implemented using.
+Robert Ross 2 hours 24 minutes 50 seconds
+structures like this one that's a fairly high level generic structures for interaction for tasks like counselling, for tasks like tutorial systems, where they're trying to guide the LLM in behaving in specific ways with the user.
+Robert Ross 2 hours 25 minutes 10 seconds
+So these graph based structures, they'll often be a backend to the LLM and the prompt, the prompt will literally say something like, okay, have a look at the state graph. If this bit has been answered, then move on to the next bit. And the LLM gives the flexibility for
+Robert Ross 2 hours 25 minutes 31 seconds
+interpreting what the user is saying accurately and getting the meaning out of it and correcting the user if they make a mistake and dealing with the user if they explain something in a completely ridiculous way. The LLM is fantastic at that, but it's following this overall structure that has been dictated
+Robert Ross 2 hours 25 minutes 49 seconds
+by the application designer.
+Robert Ross 2 hours 25 minutes 53 seconds
+Okay, so that's state graph based systems. By the way, for a lot of these, I've got bits of text. I'm just, I'm flicking over the text because it's just explaining what I'm saying to you here.
+Robert Ross 2 hours 26 minutes 5 seconds
+And in there, yeah, I've just got a more basic example of what that actually looks like in practise, just sort of zooming in on a bit just to make a point. But again, it's just making the point that we can maybe map out what we expect the structure to be of the conversation based on what the user is allowed to say, then based on what the system is allowed to say.
+Robert Ross 2 hours 26 minutes 26 seconds
+and so forth.
+Robert Ross 2 hours 26 minutes 29 seconds
+And...
+Robert Ross 2 hours 26 minutes 31 seconds
+Yeah, these, yeah, they can get very complicated. And again, lots of different toolkits existed for many years that support these. Something like Google Dialogue Flow was created for interactive voice response based systems. I'll be honest, I haven't checked this year, but it may have been put out to pasture at this stage.
+Robert Ross 2 hours 26 minutes 52 seconds
+I expect it would have been at this stage. The key point though is that even the big players, the enterprises, or the scalers, they provided some implementations and solutions for guiding these sorts of dialogue processes for lots of different application types, everything from phone banking
+Robert Ross 2 hours 27 minutes 13 seconds
+as I said, to really dictating how interactions with users happened in call centres, for example.
+Robert Ross 2 hours 27 minutes 20 seconds
+Okay, so let's move on to other types of control mechanisms, all of these dialogue manager mechanisms. And with each one I give you here, we're building up in sophistication a little bit more.
+Robert Ross 2 hours 27 minutes 35 seconds
+So that the next one is an information state-based system, and this is really about identifying.
+Robert Ross 2 hours 27 minutes 47 seconds
+not a graph structure for what the user and the system talk about, but really a set of rules about how people normally talk to each other and what are the rules for good conversation. So in a way, you can think about this as an approach to capturing some of those graph systems.
+Robert Ross 2 hours 28 minutes 8 seconds
+But, based on...

@@ -1,0 +1,298 @@
+ad
+Transcript. Use arrow keys to navigate between transcript entries. Select an entry to navigate the media to the time of the entry.
+
+
+
+AI-generated content may be incorrect
+
+
+
+Robert Ross started transcription
+AP
+A00048448 Guilherme Prado
+0 minutes 3 seconds0:03
+A00048448 Guilherme Prado 0 minutes 3 seconds
+Okay, thank you.
+Robert Ross
+0 minutes 4 seconds0:04
+Robert Ross 0 minutes 4 seconds
+Okay.
+Robert Ross 0 minutes 5 seconds
+Thi.
+Robert Ross 0 minutes 7 seconds
+Let's try that again.
+Robert Ross 0 minutes 18 seconds
+Let's try that again, recording.
+Robert Ross 0 minutes 21 seconds
+Recording is still going on, that's fine and try sharing it again and see if it works better this time.
+Robert Ross 0 minutes 34 seconds
+Let's try that one. Does that work better?
+AP
+A00048448 Guilherme Prado
+0 minutes 37 seconds0:37
+A00048448 Guilherme Prado 0 minutes 37 seconds
+All good, no, no, like again. I don't know, at least for me. I don't know if everyone's seen the same. Maybe it's only me.
+Robert Ross
+0 minutes 39 seconds0:39
+Robert Ross 0 minutes 39 seconds
+Oh.
+Robert Ross 0 minutes 41 seconds
+Noel.
+Robert Ross 0 minutes 45 seconds
+Yeah, yeah.
+AG
+A00048403 Seda Grigoryan
+0 minutes 45 seconds0:45
+A00048403 Seda Grigoryan 0 minutes 45 seconds
+Yes, I'm seeing black as well, yeah.
+Robert Ross
+0 minutes 47 seconds0:47
+Robert Ross 0 minutes 47 seconds
+Back up.
+AP
+A00048448 Guilherme Prado
+0 minutes 48 seconds0:48
+A00048448 Guilherme Prado 0 minutes 48 seconds
+Okay.
+Robert Ross
+0 minutes 50 seconds0:50
+Robert Ross 0 minutes 50 seconds
+OKOK, bear with me.
+Robert Ross 0 minutes 54 seconds
+Is interesting.
+AP
+A00048448 Guilherme Prado
+0 minutes 57 seconds0:57
+A00048448 Guilherme Prado 0 minutes 57 seconds
+Will Microsoft update Teams again?
+Robert Ross
+1 minute 1 second1:01
+Robert Ross 1 minute 1 second
+And.
+Robert Ross 2 minutes
+It's still black. I can see it's still black with a little icon thing there for you. Okay.
+Robert Ross 2 minutes 8 seconds
+Just.
+Robert Ross 2 minutes 9 seconds
+Important to be able to see it, so bear with me one second.
+Robert Ross 2 minutes 16 seconds
+I just want to try one other thing.
+Robert Ross 2 minutes 40 seconds
+Right, this might just take one minute to do, but it should work if you just bear with me. I might just drop out for a second as I switch over.
+Robert Ross 4 minutes 35 seconds
+Okay, so that didn't work. So we're going to do this the basic way. I'm just going to show you the regular PowerPoint screen.
+Robert Ross 4 minutes 43 seconds
+Quick, easy solution.
+Robert Ross 6 minutes 4 seconds
+Okay, better than nothing, but not ideal. So let me just see if I can make it bigger at all for you.
+D24127620 Eamonn Kelly
+6 minutes 8 seconds6:08
+D24127620 Eamonn Kelly 6 minutes 8 seconds
+Bing.
+Robert Ross
+6 minutes 16 seconds6:16
+Robert Ross 6 minutes 16 seconds
+Okay, okay, you'll be able to see most of it. When we take a break, I'll try resetting a few things here to see if it makes a difference, but at least that can get us started. So what I was saying is I swapped over for two reasons. Number one, it's even more natural to put the natural language semantics, the representation of meaning here actually, before we turn it back around and use it for generation.
+Robert Ross 6 minutes 41 seconds
+next week or for speech synthesis. And also because honestly I found in recent years it was a bit...
+Robert Ross 6 minutes 50 seconds
+I kind of put this a bit boggy, a bit irritating, to do speech synth, you know, input one week and look at different pipelines and then just switch straight over to generation the next week. They're sort of interfering with each other in terms of concepts, if you know what I mean. So this seems like a slightly better way of doing things. So it also means...
+Robert Ross 7 minutes 10 seconds
+you can get stuck into some of the issues that are very relevant to AI and natural language as we process it in real world systems that aren't just speech based systems as quickly as possible. So that's what we're going to do tonight. So I call this representing text and dialogue with a scratch through it.
+Robert Ross 7 minutes 31 seconds
+to emphasise the fact that yeah, we are going to do dialogue a little bit tonight. Absolutely we are. But how we represent dialogue, it's interesting in terms of the raw machine level stuff, we'll often do it in a very similar way to what we're doing with plain text.
+Robert Ross 7 minutes 51 seconds
+but there are subtleties about it. So we'll see some of that later this evening.
+Robert Ross 7 minutes 57 seconds
+So when I talk about representing text, by the way, I'm talking about all types of text, but in particular text we use as documents, as natural language. So that can be anything from the recordings of speech recognition that we saw last week.
+Robert Ross 8 minutes 15 seconds
+right through to newspaper articles, tweets, you name it. That's all the different types of text we're talking about. So just keep that in mind. Text itself as a word just means text you will input. It doesn't necessarily have to be something that's already only used as written text.
+Robert Ross 8 minutes 35 seconds
+So like I said, it could be the transcription of handwriting recognition, it could be the transcription of speech recognition, etc, etc. So it's basically how we represent language is the really important point here.
+Robert Ross 8 minutes 49 seconds
+And we'll see that how we represent language comes in many different shapes and sizes, right? So we've got some representations that are more suitable for editing, for direct manipulation within an editor, for example. So things like ASCII, Unicode, et cetera, they're suitable for direct manipulation.
+Robert Ross 9 minutes 9 seconds
+editing and relatively compact storage, as long as you use a secondary storage mechanism for them. And then we have other types of representations, such as the vector space representations, which we'll talk about a lot today.
+Robert Ross 9 minutes 24 seconds
+which are way more suitable for generalising from. They're not good for editing. They're not good for capturing the text you're writing out in an e-mail in a way that you can edit and manipulate it quickly. But they're really good for things like search. They're really good for large language models because they focus on the meaning of the text.
+Robert Ross 9 minutes 45 seconds
+rather than the actual characters themselves. And that's going to be a big part of today's conversation.
+Robert Ross 9 minutes 52 seconds
+Okay, so what exactly are we going to cover today? We're going to cover a lot, right? So we're going to go through giving, you know, the whole idea of the relationship between words as concepts and words as text and what we're sort of doing with them. We're going to look at different ways in which we can
+Robert Ross 10 minutes 13 seconds
+represent text and we're going to do that right from the basics of standard computer encodings to classical machine learning style representations, things that you might have looked a little bit in in your machine learning courses and stuff like that, which are on things like TF-IDF, which is still really important to us, things like...
+Robert Ross 10 minutes 32 seconds
+bag of word style representations, etc. and they will slowly progress up through what I call distributed semantics representations. So these are these vector space style representations and we'll see how they're used for representing the meaning of individual words.
+Robert Ross 2 hours 44 minutes 38 seconds
+Okay, folks, I think we're done, right? Go and do play with that notebook and use it to think back about what we went through in the lecture as well. They're designed to go hand in hand for a very good reason, you know, because the slides can seem quite abstract, but when you see the examples and you see the different representations and what they can do or not.
+Robert Ross 2 hours 45 minutes
+Do it, it makes it a lot more clear, so please do put the time through us, and and usually no matter.
+Robert Ross 2 hours 45 minutes 8 seconds
+no matter what assignment I've ever put out.
+Robert Ross 2 hours 45 minutes 12 seconds
+Representations are always part of it because representations are core to everything we do. And in the exam, I haven't set the exam questions yet, but representations do always seem to pop up in the exam just because they're important and they sort of inter, they glue in with everything else in the module. Again,
+Robert Ross 2 hours 45 minutes 33 seconds
+That makes no guarantees. I'm just trying to emphasise the fact that the stuff this evening is sort of pivotal to everything else.
+Robert Ross 2 hours 45 minutes 44 seconds
+Okay, folks, on that note, I am going to find my bed and thank you all very much, particularly those who are great at reminding me to hit the record button. I always appreciate your help in particular, and we will speak to you all next week.
+Robert Ross 2 hours 46 minutes 1 second
+Thank you. Yeah, I'm much better than I was over the weekend, by the way. I did not think on Saturday that this lecture was going to happen. So yeah, thank you.
+AG
+A00048403 Seda Grigoryan
+2 hours 46 minutes 9 seconds2:46:09
+A00048403 Seda Grigoryan 2 hours 46 minutes 9 seconds
+Thank you. Take care.
+AP
+A00048448 Guilherme Prado
+2 hours 46 minutes 10 seconds2:46:10
+A00048448 Guilherme Prado 2 hours 46 minutes 10 seconds
+Thanks very much, and stay, stay, stay good, Rob. Please don't.
+Robert Ross
+2 hours 46 minutes 11 seconds2:46:11
+Robert Ross 2 hours 46 minutes 11 seconds
+Bye-bye.
+CL
+Cormac lyons
+2 hours 46 minutes 13 seconds2:46:13
+Cormac lyons 2 hours 46 minutes 13 seconds
+Bye bye.
+
+
+====== AI-generated content may be incorrect
+
+
+
+Robert Ross started transcription
+AP
+A00048448 Guilherme Prado
+0 minutes 3 seconds0:03
+A00048448 Guilherme Prado 0 minutes 3 seconds
+Okay, thank you.
+Robert Ross
+0 minutes 4 seconds0:04
+Robert Ross 0 minutes 4 seconds
+Okay.
+Robert Ross 0 minutes 5 seconds
+Thi.
+Robert Ross 0 minutes 7 seconds
+Let's try that again.
+Robert Ross 0 minutes 18 seconds
+Let's try that again, recording.
+Robert Ross 0 minutes 21 seconds
+Recording is still going on, that's fine and try sharing it again and see if it works better this time.
+Robert Ross 0 minutes 34 seconds
+Let's try that one. Does that work better?
+AP
+A00048448 Guilherme Prado
+0 minutes 37 seconds0:37
+A00048448 Guilherme Prado 0 minutes 37 seconds
+All good, no, no, like again. I don't know, at least for me. I don't know if everyone's seen the same. Maybe it's only me.
+Robert Ross
+0 minutes 39 seconds0:39
+Robert Ross 0 minutes 39 seconds
+Oh.
+Robert Ross 0 minutes 41 seconds
+Noel.
+Robert Ross 0 minutes 45 seconds
+Yeah, yeah.
+AG
+A00048403 Seda Grigoryan
+0 minutes 45 seconds0:45
+A00048403 Seda Grigoryan 0 minutes 45 seconds
+Yes, I'm seeing black as well, yeah.
+Robert Ross
+0 minutes 47 seconds0:47
+Robert Ross 0 minutes 47 seconds
+Back up.
+AP
+A00048448 Guilherme Prado
+0 minutes 48 seconds0:48
+A00048448 Guilherme Prado 0 minutes 48 seconds
+Okay.
+Robert Ross
+0 minutes 50 seconds0:50
+Robert Ross 0 minutes 50 seconds
+OKOK, bear with me.
+Robert Ross 0 minutes 54 seconds
+Is interesting.
+AP
+A00048448 Guilherme Prado
+0 minutes 57 seconds0:57
+A00048448 Guilherme Prado 0 minutes 57 seconds
+Will Microsoft update Teams again?
+Robert Ross
+1 minute 1 second1:01
+Robert Ross 1 minute 1 second
+And.
+Robert Ross 2 minutes
+It's still black. I can see it's still black with a little icon thing there for you. Okay.
+Robert Ross 2 minutes 8 seconds
+Just.
+Robert Ross 2 minutes 9 seconds
+Important to be able to see it, so bear with me one second.
+Robert Ross 2 minutes 16 seconds
+I just want to try one other thing.
+Robert Ross 2 minutes 40 seconds
+Right, this might just take one minute to do, but it should work if you just bear with me. I might just drop out for a second as I switch over.
+Robert Ross 4 minutes 35 seconds
+Okay, so that didn't work. So we're going to do this the basic way. I'm just going to show you the regular PowerPoint screen.
+Robert Ross 4 minutes 43 seconds
+Quick, easy solution.
+Robert Ross 6 minutes 4 seconds
+Okay, better than nothing, but not ideal. So let me just see if I can make it bigger at all for you.
+D24127620 Eamonn Kelly
+6 minutes 8 seconds6:08
+D24127620 Eamonn Kelly 6 minutes 8 seconds
+Bing.
+Robert Ross
+6 minutes 16 seconds6:16
+Robert Ross 6 minutes 16 seconds
+Okay, okay, you'll be able to see most of it. When we take a break, I'll try resetting a few things here to see if it makes a difference, but at least that can get us started. So what I was saying is I swapped over for two reasons. Number one, it's even more natural to put the natural language semantics, the representation of meaning here actually, before we turn it back around and use it for generation.
+Robert Ross 6 minutes 41 seconds
+next week or for speech synthesis. And also because honestly I found in recent years it was a bit...
+Robert Ross 6 minutes 50 seconds
+I kind of put this a bit boggy, a bit irritating, to do speech synth, you know, input one week and look at different pipelines and then just switch straight over to generation the next week. They're sort of interfering with each other in terms of concepts, if you know what I mean. So this seems like a slightly better way of doing things. So it also means...
+Robert Ross 7 minutes 10 seconds
+you can get stuck into some of the issues that are very relevant to AI and natural language as we process it in real world systems that aren't just speech based systems as quickly as possible. So that's what we're going to do tonight. So I call this representing text and dialogue with a scratch through it.
+Robert Ross 7 minutes 31 seconds
+to emphasise the fact that yeah, we are going to do dialogue a little bit tonight. Absolutely we are. But how we represent dialogue, it's interesting in terms of the raw machine level stuff, we'll often do it in a very similar way to what we're doing with plain text.
+Robert Ross 7 minutes 51 seconds
+but there are subtleties about it. So we'll see some of that later this evening.
+Robert Ross 7 minutes 57 seconds
+So when I talk about representing text, by the way, I'm talking about all types of text, but in particular text we use as documents, as natural language. So that can be anything from the recordings of speech recognition that we saw last week.
+Robert Ross 8 minutes 15 seconds
+right through to newspaper articles, tweets, you name it. That's all the different types of text we're talking about. So just keep that in mind. Text itself as a word just means text you will input. It doesn't necessarily have to be something that's already only used as written text.
+Robert Ross 8 minutes 35 seconds
+So like I said, it could be the transcription of handwriting recognition, it could be the transcription of speech recognition, etc, etc. So it's basically how we represent language is the really important point here.
+Robert Ross 8 minutes 49 seconds
+And we'll see that how we represent language comes in many different shapes and sizes, right? So we've got some representations that are more suitable for editing, for direct manipulation within an editor, for example. So things like ASCII, Unicode, et cetera, they're suitable for direct manipulation.
+Robert Ross 9 minutes 9 seconds
+editing and relatively compact storage, as long as you use a secondary storage mechanism for them. And then we have other types of representations, such as the vector space representations, which we'll talk about a lot today.
+Robert Ross 9 minutes 24 seconds
+which are way more suitable for generalising from. They're not good for editing. They're not good for capturing the text you're writing out in an e-mail in a way that you can edit and manipulate it quickly. But they're really good for things like search. They're really good for large language models because they focus on the meaning of the text.
+Robert Ross 9 minutes 45 seconds
+rather than the actual characters themselves. And that's going to be a big part of today's conversation.
+Robert Ross 9 minutes 52 seconds
+Okay, so what exactly are we going to cover today? We're going to cover a lot, right? So we're going to go through giving, you know, the whole idea of the relationship between words as concepts and words as text and what we're sort of doing with them. We're going to look at different ways in which we can
+Robert Ross 10 minutes 13 seconds
+represent text and we're going to do that right from the basics of standard computer encodings to classical machine learning style representations, things that you might have looked a little bit in in your machine learning courses and stuff like that, which are on things like TF-IDF, which is still really important to us, things like...
+Robert Ross 10 minutes 32 seconds
+bag of word style representations, etc. and they will slowly progress up through what I call distributed semantics representations. So these are these vector space style representations and we'll see how they're used for representing the meaning of individual words.
+Robert Ross 2 hours 38 minutes 8 seconds
+We can pull that down and again use that to look at the meaning of our sentences in a nice, thorough way.
+Robert Ross 2 hours 38 minutes 18 seconds
+And that was, oh yeah, that was almost it, except to emphasise the importance of putting all of this to work with semantic search. With all of these abilities, what we can do is not obviously just look at the similarity of sentences for the sake of it, but also looking at.
+Robert Ross 2 hours 38 minutes 39 seconds
+How we can use that to actually perform search, which is to say, take a vector for a search query and compare it against all of the documents that we have in our inventory and pull back the documents which are closest to it, so it's not just measuring the similarity, it's measuring the similarity and.
+Robert Ross 2 hours 38 minutes 58 seconds
+ordering things so we can pull back the things that are the closest.
+Robert Ross 2 hours 39 minutes 4 seconds
+And there's a little implementation there. A brute force implementation I will add to explain how that can work in practice. And I say brute force because there's much cleaner, simpler ways that you could actually implement that in practice.
+Robert Ross 2 hours 39 minutes 19 seconds
+Okay, so I know there's a lot in there in that lab, so what I want people to do is to start working down through it. We won't have enough time to cover everything in it tonight, but I want people to go off this week and then next week to some extent and sort of work through the lab and make sure it all makes sense to you because...
+Robert Ross 2 hours 39 minutes 39 seconds
+Trust me, this stuff that I'm introducing with you this evening, it's relevant for information retrieval, it's relevant for LLNs, it's relevant for everything we want to do with processing text. So take the time to work through it. I'll shut up for a minute and I'll let people start working through it themselves.
+Robert Ross 2 hours 39 minutes 59 seconds
+If you got questions, drop them into the chat there and I'll try to address them. Particularly if you've got any questions even getting it to work, please do indicate that because I don't want people having trouble with that side of things.
+Robert Ross 2 hours 40 minutes 16 seconds
+Let me see if I can find the right screen.

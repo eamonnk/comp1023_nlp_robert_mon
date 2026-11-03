@@ -1,0 +1,85 @@
+AI-generated content may be incorrect
+
+
+
+Robert Ross started transcription
+Robert Ross
+0 minutes 3 seconds0:03
+Robert Ross 0 minutes 3 seconds
+Let's get stuck into the actual content for this evening, which is starting with speech synthesis. So speech synthesis, it's a simple technology in the sense that we have had it for decades, right? So everybody is familiar with the scenes and the sounds of early speech synthesis systems.
+Robert Ross 0 minutes 26 seconds
+such as from Professor Hawking here, which ever since the middle of the 1980s or even a little bit earlier for some of the most basic systems, had been able to take the basic components of language and splice them together such that good, I won't say good, but such that recognisable speech
+Robert Ross 0 minutes 46 seconds
+could be produced. And Stephen Hawking famously, of course, had a speech box put into his system, into his wheelchair in the mid to late 80s. And that voice became very characteristic of Stephen Hawking. And over the decades, of course, and this is a true story, of course, so many companies wanted
+Robert Ross 1 minute 7 seconds
+to upgrade that and give him a better voice. Everybody wanted to show what the state of speech synthesis could be, but of course, and for very good reasons, he wanted to keep his voice as he recognised to be the representation of himself. My main point there, of course, is speech synthesis has been knocking around for years, and it's there. It's directly built into
+Robert Ross 1 minute 30 seconds
+media apps. It is directly built into your Alexa devices or the equivalent, whatever you use. And as we move forward, it's also baked into the various types of humanoid robots that I'm going to come back to later in terms of gesture and so forth.
+Robert Ross 1 minute 49 seconds
+The issue is though, just because speech synthesis is something that we can latch on to quickly as a technology type, it doesn't mean it's actually solved in terms of being a perfect technology. Some technologies are close to perfect. Speech synthesis isn't one that's there quite yet. It's very close now. It really is close.
+Robert Ross 2 minutes 13 seconds
+And obviously, you know, it's easy to have lots of speech models with different accents, different variations. It's possible to do those variations really, really quickly. Like I could in an afternoon, you know, in this evening, I could give you a task of trying to find a speech sample for every significant accent in Ireland.
+Robert Ross 2 minutes 35 seconds
+and generating models from speech synthesis for speech synthesis that could then do all of those accents a little bit. And it can be done. It wouldn't be done perfectly, but you could do it quickly.
+Robert Ross 2 minutes 48 seconds
+But getting things like the timing right, getting things like the hack, the nuances of the emotion right can still be challenging. And I know this for example, because I went through a phase with the kids earlier this year of just for novelty and maybe because I was sick of reading.
+Robert Ross 3 minutes 7 seconds
+Goldilocks and the Three Bears every night. That's actually the truth. I was very sick of reading Goldilocks and the Three Bears every night. I started getting clawed.
+Robert Ross 3 minutes 17 seconds
+to write me little stories at bedtime with the kids, involving the kids, which they loved, and but using speech synthesis engines to actually call it out. So I was just being uber lazy, daddy, just lying back, give Claude a nice big prompt, and then hitting the play button to synthesise it. I even tried it with a couple of others.
+Robert Ross 3 minutes 38 seconds
+synthesis engines and the issue I had and why the girls ultimately got a bit irritated by it was that the synthesis really couldn't capture the nuances of the language properly. Not least of all that they kept pronouncing one of the children's voices wrong, but you know, there'd just be glitches in the speech synthesis and as I said, words not
+Robert Ross 4 minutes
+being emphasised correctly and so forth. And so, you know, there's still a way to go there. But at its core, speech synthesis is a simple idea. We take written text, sometimes it is just plain written text with full stops and commas and all the rest of it. Sometimes we can mark it up a little bit to put emphasis into the text.
+Robert Ross 4 minutes 21 seconds
+The speech and tools from people like Eleven Labs allow us to do that, and the goal is obviously to produce audio which captures that meaning as.
+Robert Ross 4 minutes 34 seconds
+Accurately as possible, with respect to what the designer intended, and I'll use that term purposefully designer, because I think in something like speech synthesis or anytime we're dealing with output modalities, so speech or gesture or visual representation and so forth.
+Robert Ross 4 minutes 54 seconds
+There is often the involvement of people I would consider designers who are really thinking about what something should look like, as opposed to us say as data, or as opposed to me sometimes just as a machine learning person, just looking at the raw data and saying, hey, I don't really care. The model will just produce something.
+Robert Ross 5 minutes 14 seconds
+No, this is an issue of design and it's trying to get things nuanced and subtle, and that takes a little bit of effort. Now, some of the reasons that there are problems with speech synthesis is not just stuff like the use of Irish language names
+Robert Ross 5 minutes 33 seconds
+in English text, which is called code switching, which is an issue. It's also issues like the fact that if we take words like a word written as B-A-S-S, that's an example of what we call a heteronym, which is where the...
+Robert Ross 5 minutes 53 seconds
+actual word, the spoken word, is not just one word, the two words. So there's bass or there's bass, what is a guitar, what is a type of fish, and many problems for years where that systems weren't able to accurately guess that pronunciation that was there. You still see that in a lot of speech outputs.
+Robert Ross 6 minutes 12 seconds
+I still encounter it a lot with respect to things like live and live being wrong. I think that's the one I encountered the most. It's speech output isn't my core research area, so I don't know the stats on how often these things still go wrong and so forth, but definitely if you just work with any of the.
+Robert Ross 6 minutes 32 seconds
+even the high-end language generation systems, you're still hitting those sorts of issues on occasion. And other issues, another issue.
+Robert Ross 6 minutes 44 seconds
+On a more fundamental level about what is challenge for these languages is problem like what's called liaison, obviously from the French, coming from French, which is a question of how bits of words connect into each other. Because in practise in speech,
+Robert Ross 7 minutes 3 seconds
+and we're really good at learning how to do this as kids. Individual words are not sort of like just blocks by themselves. Instead, as we articulate, as we speak, this is sort of a fusion between the end of one word and the start of the next word, which can be quite subtle.
+Robert Ross 7 minutes 23 seconds
+in terms of the integration of the two words. And again, getting those sorts of issues correct can be challenging. Now, I would say that that problem in general I would consider to be far more fixed, because ultimately, in terms of just raw sounds, the generation of accurate, low level sound,
+Robert Ross 7 minutes 44 seconds
+isn't too bad at all. But still, this sort of challenge caused problems for many years.
+Robert Ross 7 minutes 51 seconds
+Another big issue, of course, is the issue of accents and speech synthesis. Now, I did note earlier that, yes, it is possible for us to really do things like get a couple of clips and get some language models that are relatively accurate for different accents. But
+Robert Ross 8 minutes 10 seconds
+They're not always great, and the problem is you can have...
+Robert Ross 8 minutes 17 seconds
+There are very big language banks which try to capture lots of examples from different regions, but depending on your country you're dealing with, the number of linguistic variations can still be quite high with respect to the cost involved in just getting people to sit down and gather more data. So even in the likes of Ireland, which is
+Robert Ross 8 minutes 36 seconds
+You know, as Irish people, we think we're crazy to have so many accents. The collection of that data is dumb, okay, by and large, because...
+Robert Ross 8 minutes 46 seconds
+Ireland, you wouldn't believe it if you saw the state of the roads, but it's apparently a first world country that lots of the tech companies operate here. We can gather the data. But if you look at a more international level into different countries, gathering that data and being bothered to make models available for those different data,
+Robert Ross 9 minutes 7 seconds
+isn't always a priority. So you can have issues just in terms of specialising the language for different groups, never mind the issue of.
+Robert Ross 9 minutes 17 seconds
+creating models for non-standard speech, which is a big issue for me. That's heavily underrepresented and in fact, maybe later, just while we're waiting to come back from the break or something, I'll tell you a little bit about something one of my PhD students, Kasogi, is doing in that space.
+Robert Ross 2 hours 32 minutes 18 seconds
+Nobody likes to hear their voice anyway, but it's just much, much worse in that scenario.
+Robert Ross 2 hours 32 minutes 25 seconds
+Okay, there's just some writing there. I'm just waiting to see what people are writing, but then otherwise we're winding up.
+Robert Ross 2 hours 32 minutes 41 seconds
+Safe words, yes, very good. Sorry, do you mean for me to give a word on safe words or are you just pointing out that, you know, they can be an important way of avoiding being scammed?
+Robert Ross 2 hours 33 minutes 5 seconds
+Yeah, yeah, yeah, absolutely. And yeah, yeah, and offices are putting in things like that, just protocols, where if anything business critical is being discussed on the phone in that way, or even in, you know, end-to-end communication that isn't secured, that basically
+Robert Ross 2 hours 33 minutes 24 seconds
+nothing serious be done. I mean, I think the idea is, and this is one of the places where actually supports say Teams versus e-mail, is that at least in a team style environment, you're supposed to be able to, or Microsoft, and the providers are supposed to be able to stand over the fact that the person you think you're talking to.
+Robert Ross 2 hours 33 minutes 45 seconds
+is at least signed in properly as that person. Now if the account is compromised, that's a different issue. But yeah, it's, yeah, protocols are needed. Safeguards are needed. On that note, my safeguard is to get to bed so that I can actually get up in the morning and do another day's work.
+Robert Ross 2 hours 34 minutes 6 seconds
+Same to you all. Great to see you. Great to see good attendance. So, you know, even 4 weeks into class, you can tell that the assignments haven't really kicked in yet because the numbers will start dropping off. But great to at least see your names there this evening and I'll speak to you again next week.
